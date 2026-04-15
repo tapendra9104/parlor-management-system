@@ -17,10 +17,13 @@ const config = require('../config/env');
 const { sendPaymentReceipt } = require('../services/emailService');
 
 // ─── Initialize Razorpay Instance ─────────────────────────────
-const razorpay = new Razorpay({
-  key_id: config.razorpayKeyId,
-  key_secret: config.razorpayKeySecret,
-});
+let razorpay = null;
+if (config.razorpayKeyId && config.razorpayKeySecret) {
+  razorpay = new Razorpay({
+    key_id: config.razorpayKeyId,
+    key_secret: config.razorpayKeySecret,
+  });
+}
 
 /**
  * @desc    Get Razorpay public key (for frontend)
@@ -40,6 +43,9 @@ const getRazorpayKey = async (req, res) => {
  * @access  Private (Customer)
  */
 const createOrder = async (req, res, next) => {
+  if (!razorpay) {
+    return res.status(503).json({ success: false, message: 'Payment service is not configured.' });
+  }
   try {
     const { appointmentId } = req.body;
 
