@@ -1,0 +1,110 @@
+/* ============================================
+ * SalonFlow — Manage Services Styles (Admin)
+ * ============================================ */
+
+.manage-services-page {
+  padding-top: calc(var(--navbar-height) + var(--space-2xl));
+  padding-bottom: var(--space-4xl);
+}
+
+.services-mgmt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+  gap: var(--space-lg);
+}
+
+.services-mgmt-header h1 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--font-3xl);
+  font-weight: 600;
+}
+
+.services-mgmt-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* ─── Service Management Cards ────────────────── */
+.service-mgmt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-lg);
+}
+
+.service-mgmt-card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.service-mgmt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.service-mgmt-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.service-mgmt-name {
+  font-family: var(--font-display);
+  font-size: var(--font-lg);
+  font-weight: 600;
+}
+
+.service-mgmt-card-body {
+  padding: var(--space-lg) var(--space-xl);
+}
+
+.service-mgmt-desc {
+  font-size: var(--font-sm);
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.service-mgmt-meta {
+  display: flex;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
+  font-size: var(--font-sm);
+}
+
+.service-mgmt-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+}
+
+.service-mgmt-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-xl);
+  border-top: 1px solid var(--border);
+}
+
+/* ─── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .services-mgmt-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .service-mgmt-grid {
+    grid-template-columns: 1fr;
+  }
+}

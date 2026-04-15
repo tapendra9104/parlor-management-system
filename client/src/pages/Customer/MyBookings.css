@@ -1,0 +1,233 @@
+/* ============================================
+ * SalonFlow — My Bookings Page Styles
+ * ============================================ */
+
+.my-bookings-page {
+  padding-top: calc(var(--navbar-height) + var(--space-2xl));
+  padding-bottom: var(--space-4xl);
+}
+
+/* ─── Header ──────────────────────────────────── */
+.bookings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+  gap: var(--space-lg);
+}
+
+.bookings-header h1 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--font-3xl);
+  font-weight: 600;
+}
+
+.header-icon {
+  color: var(--primary);
+}
+
+/* ─── Filter Tabs ─────────────────────────────── */
+.bookings-filter-tabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  overflow-x: auto;
+}
+
+.filter-tab {
+  padding: 8px 20px;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-tertiary);
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+}
+
+.filter-tab:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-tab.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* ─── Booking Cards ───────────────────────────── */
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.booking-item {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-xl);
+  padding: var(--space-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-normal);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.booking-item:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.booking-date-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.booking-date-month {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+.booking-date-day {
+  font-size: var(--font-2xl);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.booking-date-year {
+  font-size: var(--font-xs);
+  color: var(--text-tertiary);
+}
+
+.booking-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.booking-services-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--space-xs);
+}
+
+.booking-service-tag {
+  padding: 4px 12px;
+  background: var(--primary-glow);
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  font-size: var(--font-xs);
+  font-weight: 600;
+}
+
+.booking-meta {
+  display: flex;
+  gap: var(--space-lg);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.booking-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.booking-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.booking-status {
+  text-transform: capitalize;
+}
+
+/* ─── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .bookings-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bookings-header h1 {
+    font-size: var(--font-2xl);
+  }
+  .booking-item {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .booking-date-badge {
+    flex-direction: row;
+    gap: var(--space-sm);
+    min-width: unset;
+    padding: var(--space-sm) var(--space-md);
+  }
+  .booking-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .booking-meta {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .booking-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .booking-filters::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .bookings-header h1 {
+    font-size: var(--font-xl);
+  }
+  .booking-item {
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+  }
+  .booking-service-tag {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+  .booking-meta {
+    font-size: var(--font-xs);
+  }
+  .booking-card-header {
+    flex-wrap: wrap;
+  }
+  .booking-card-footer {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+}
+

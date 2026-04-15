@@ -1,0 +1,134 @@
+/* ============================================
+ * SalonFlow — Inventory Management Styles
+ * ============================================ */
+
+.inventory-page {
+  padding-top: calc(var(--navbar-height) + var(--space-2xl));
+  padding-bottom: var(--space-4xl);
+}
+
+.inventory-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+  gap: var(--space-lg);
+}
+
+.inventory-header h1 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--font-3xl);
+  font-weight: 600;
+}
+
+/* ─── Stats Row ───────────────────────────────── */
+.inventory-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+/* ─── Filters ─────────────────────────────────── */
+.inventory-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* ─── Item Name Cell ──────────────────────────── */
+.item-name-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.item-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.stock-qty {
+  font-weight: 700;
+  font-size: var(--font-md);
+}
+
+.stock-qty.low {
+  color: var(--danger);
+}
+
+/* ─── Restock Modal ───────────────────────────── */
+.restock-info {
+  padding: var(--space-lg);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+}
+
+.restock-info h3 {
+  font-family: var(--font-display);
+  font-size: var(--font-lg);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.restock-info p {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.restock-preview {
+  padding: var(--space-md);
+  background: rgba(34, 197, 94, 0.06);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-size: var(--font-md);
+  color: var(--success);
+  margin-top: var(--space-md);
+}
+
+/* ─── Responsive ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .inventory-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .inventory-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .inventory-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .inventory-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .category-filters {
+    overflow-x: auto;
+  }
+}

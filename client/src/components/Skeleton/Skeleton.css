@@ -1,0 +1,145 @@
+/* ============================================
+ * SalonFlow — Skeleton Loading Styles
+ * ============================================ */
+
+/* ─── Shimmer Animation ────────────────────── */
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-pulse {
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--bg-tertiary) 50%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ─── Stat Card Skeleton ───────────────────── */
+.skeleton-stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.skeleton-stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Text Group ───────────────────────────── */
+.skeleton-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeleton-text-line {
+  height: 14px;
+}
+
+/* ─── Service Card Skeleton ────────────────── */
+.skeleton-service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.skeleton-service-body {
+  padding: 16px;
+}
+
+/* ─── Booking Card Skeleton ────────────────── */
+.skeleton-booking-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.skeleton-booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.skeleton-booking-body {
+  margin-bottom: 16px;
+}
+
+.skeleton-booking-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* ─── Chart Skeleton ───────────────────────── */
+.skeleton-chart {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+/* ─── Dashboard Skeleton ───────────────────── */
+.skeleton-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.skeleton-welcome {
+  margin-bottom: var(--space-md);
+}
+
+.skeleton-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.skeleton-charts-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+/* ─── Table Skeleton ───────────────────────── */
+.skeleton-table-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.skeleton-table-row td {
+  padding: 14px 20px;
+}
+
+/* ─── Mobile ───────────────────────────────── */
+@media (max-width: 768px) {
+  .skeleton-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skeleton-charts-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .skeleton-stats-row {
+    grid-template-columns: 1fr;
+  }
+}

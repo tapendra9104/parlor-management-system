@@ -1,0 +1,72 @@
+/* ============================================
+ * SalonFlow — Review Modal Styles
+ * ============================================ */
+
+.review-modal {
+  max-width: 480px;
+}
+
+.review-appointment-info {
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xl);
+}
+
+.review-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--space-sm);
+}
+
+.review-staff {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.review-rating-section {
+  text-align: center;
+  padding: var(--space-xl) 0;
+}
+
+.review-stars {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.review-star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--bg-tertiary);
+  transition: all var(--transition-fast);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.review-star:hover {
+  transform: scale(1.15);
+}
+
+.review-star.filled {
+  color: var(--warning);
+  fill: var(--warning);
+}
+
+.review-star.filled svg {
+  fill: var(--warning);
+}
+
+.review-rating-label {
+  display: inline-block;
+  padding: 4px 16px;
+  background: rgba(232, 168, 56, 0.1);
+  color: var(--warning);
+  border-radius: var(--radius-full);
+  font-size: var(--font-sm);
+  font-weight: 700;
+  animation: scaleIn 0.2s ease;
+}

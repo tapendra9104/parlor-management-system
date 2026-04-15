@@ -1,0 +1,401 @@
+/* ============================================
+ * SalonFlow — Admin Dashboard Styles
+ * ============================================ */
+
+.admin-dashboard {
+  padding-top: calc(var(--navbar-height) + var(--space-2xl));
+  padding-bottom: var(--space-4xl);
+}
+
+/* ─── Welcome Header ─────────────────────────── */
+.dashboard-welcome {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+  gap: var(--space-lg);
+}
+
+.dashboard-title {
+  font-family: var(--font-display);
+  font-size: var(--font-3xl);
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* ─── Dashboard Tabs ─────────────────────────── */
+.dashboard-tabs {
+  display: flex;
+  gap: 4px;
+  margin: var(--space-2xl) 0;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0;
+  overflow-x: auto;
+}
+
+.dashboard-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-family: inherit;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-tertiary);
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  margin-bottom: -2px;
+  white-space: nowrap;
+}
+
+.dashboard-tab:hover {
+  color: var(--primary);
+  background: var(--primary-glow);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.dashboard-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* ─── Card Common ────────────────────────────── */
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.card-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-2xl) 0;
+  color: var(--text-tertiary);
+  font-size: var(--font-sm);
+}
+
+/* ─── Charts ─────────────────────────────────── */
+.chart-card {
+  overflow: hidden;
+}
+
+.chart-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: var(--font-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+}
+
+.chart-container {
+  position: relative;
+}
+
+.pie-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ─── Admin Bottom Grid ──────────────────────── */
+.admin-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+/* ─── Popular Services ───────────────────────── */
+.popular-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.popular-service-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.popular-service-item:hover {
+  background: var(--bg-secondary);
+  transform: translateX(4px);
+}
+
+.popular-rank {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-sm);
+  font-weight: 800;
+  color: var(--primary);
+  background: linear-gradient(135deg, var(--primary-glow), transparent);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.popular-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.popular-name {
+  font-weight: 600;
+  font-size: var(--font-md);
+}
+
+.popular-price {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ─── Low Stock ──────────────────────────────── */
+.low-stock-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.low-stock-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  transition: all var(--transition-fast);
+}
+
+.low-stock-item:hover {
+  border-color: var(--danger);
+  background: rgba(220, 53, 69, 0.03);
+}
+
+.low-stock-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.low-stock-icon {
+  color: var(--danger);
+  flex-shrink: 0;
+}
+
+.low-stock-info div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Staff Performance Grid ─────────────────── */
+.staff-perf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.staff-perf-card {
+  padding: var(--space-xl);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  transition: all var(--transition-normal);
+  text-align: center;
+}
+
+.staff-perf-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.staff-perf-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.staff-perf-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-xl);
+  font-weight: 800;
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.staff-perf-status {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.staff-perf-status.online {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success);
+}
+
+.staff-perf-status.offline {
+  background: rgba(220, 53, 69, 0.1);
+  color: var(--danger);
+}
+
+.staff-perf-name {
+  font-family: var(--font-display);
+  font-size: var(--font-lg);
+  font-weight: 600;
+  margin-bottom: 2px;
+  text-align: left;
+}
+
+.staff-perf-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin: var(--space-md) 0;
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.perf-stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-sm);
+  font-weight: 600;
+}
+
+.staff-perf-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: var(--space-sm);
+}
+
+/* ─── Responsive ─────────────────────────────── */
+@media (max-width: 1024px) {
+  .admin-bottom-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dashboard-title {
+    font-size: var(--font-2xl);
+  }
+  .dashboard-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .admin-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0;
+  }
+  .dashboard-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .dashboard-tab {
+    padding: 10px 16px;
+    font-size: var(--font-xs);
+  }
+  .chart-title {
+    font-size: var(--font-lg);
+  }
+  .staff-perf-grid {
+    grid-template-columns: 1fr;
+  }
+  .recharts-wrapper {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-dashboard {
+    padding-top: calc(var(--navbar-height) + var(--space-lg));
+  }
+  .dashboard-title {
+    font-size: var(--font-xl);
+  }
+  .dashboard-tab {
+    padding: 8px 12px;
+    font-size: 0.7rem;
+    gap: 4px;
+  }
+  .chart-title {
+    font-size: var(--font-md);
+    flex-wrap: wrap;
+  }
+  .staff-perf-card {
+    padding: var(--space-lg);
+  }
+  .staff-perf-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: var(--font-md);
+  }
+  .staff-perf-stats {
+    padding: var(--space-sm);
+  }
+  .perf-stat {
+    font-size: var(--font-xs);
+  }
+}
+

@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+client/dist/
+server/dist/
+
+# Environment
+.env
+.env.local
+.env.production
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+server/logs/*
+!server/logs/.gitkeep
+
+# Coverage
+coverage/
+
+# Uploads
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Backups
+backups/
+
+# Package locks (optional — remove this line if you want to commit them)
+# package-lock.json

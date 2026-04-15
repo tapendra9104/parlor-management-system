@@ -1,0 +1,377 @@
+/* ============================================
+ * SalonFlow — Staff Dashboard Styles
+ * ============================================ */
+
+.staff-dashboard {
+  padding-top: calc(var(--navbar-height) + var(--space-2xl));
+  padding-bottom: var(--space-4xl);
+}
+
+.staff-welcome {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+  gap: var(--space-lg);
+}
+
+.staff-welcome h1 {
+  font-family: var(--font-display);
+  font-size: var(--font-3xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.staff-welcome p {
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+.staff-welcome-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* ─── Stats Grid ──────────────────────────────── */
+.staff-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+
+/* ─── Today's Schedule ────────────────────────── */
+.today-schedule {
+  margin-top: var(--space-2xl);
+}
+
+.schedule-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.schedule-header h2 {
+  font-family: var(--font-display);
+  font-size: var(--font-xl);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.appointment-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.appointment-card {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-normal);
+}
+
+.appointment-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.appointment-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.appointment-time-start {
+  font-size: var(--font-lg);
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.appointment-time-end {
+  font-size: var(--font-xs);
+  color: var(--text-tertiary);
+}
+
+.appointment-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.appointment-customer {
+  font-weight: 700;
+  font-size: var(--font-md);
+}
+
+.appointment-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.appointment-notes {
+  font-size: var(--font-xs);
+  color: var(--text-tertiary);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.appointment-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+/* ─── Section Top Bar ─────────────────────────── */
+.section-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+  gap: var(--space-md);
+}
+
+.section-top-bar h2 {
+  font-family: var(--font-display);
+  font-size: var(--font-xl);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* ─── View Toggle ─────────────────────────────── */
+.view-toggle {
+  display: flex;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  border: 1px solid var(--border);
+}
+
+.toggle-btn {
+  padding: 8px 18px;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+}
+
+.toggle-btn:hover {
+  color: var(--text-primary);
+}
+
+.toggle-btn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+/* ─── Appointment Card ────────────────────────── */
+.staff-appointments-section {
+  margin-top: var(--space-xl);
+}
+
+.appt-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  animation: fadeInUp 0.4s ease forwards;
+  opacity: 0;
+}
+
+.appt-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.appt-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--primary-glow);
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  font-size: var(--font-sm);
+  font-weight: 700;
+}
+
+.appt-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.appt-client {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.appt-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.service-chip {
+  padding: 4px 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.appt-card-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border);
+}
+
+/* ─── Quick Tips ──────────────────────────────── */
+.staff-tips {
+  margin-top: var(--space-2xl);
+}
+
+.staff-tips h3 {
+  font-family: var(--font-display);
+  font-size: var(--font-xl);
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.tip-card {
+  padding: var(--space-xl);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.tip-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.tip-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.tip-card h4 {
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-md);
+}
+
+.tip-card p {
+  font-size: var(--font-sm);
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+/* ─── Responsive ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .staff-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .staff-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .staff-welcome h1 {
+    font-size: var(--font-2xl);
+  }
+  .staff-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .appointment-card {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .appointment-time {
+    flex-direction: row;
+    gap: var(--space-sm);
+    min-width: unset;
+  }
+  .appointment-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .staff-dashboard-page {
+    padding-top: calc(var(--navbar-height) + var(--space-lg));
+  }
+  .staff-welcome h1 {
+    font-size: var(--font-xl);
+  }
+  .staff-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+  .section-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  .view-toggle {
+    width: 100%;
+  }
+  .toggle-btn {
+    flex: 1;
+    text-align: center;
+  }
+  .appt-card-actions {
+    flex-wrap: wrap;
+  }
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
