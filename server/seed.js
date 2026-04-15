@@ -122,6 +122,88 @@ const seedData = async () => {
       { name: 'Hair Dryer Professional', category: 'Tools', quantity: 4, unit: 'pieces', reorderLevel: 2, costPrice: 3500, sellingPrice: 0, supplier: { name: 'Philips India', contact: '+91 1800555555' } },
     ]);
 
+    // ─── Create Sample Appointments ─────────────────────────
+    console.log('📅 Creating sample appointments...');
+    const Appointment = require('./models/Appointment');
+    await Appointment.deleteMany({});
+    const allServices = await Service.find({});
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dayAfter = new Date(today);
+    dayAfter.setDate(dayAfter.getDate() + 2);
+    const nextWeek = new Date(today);
+    nextWeek.setDate(nextWeek.getDate() + 5);
+
+    await Appointment.create([
+      // Appointments for Riya (staffProfiles[0])
+      {
+        customer: customer._id, staff: staffProfiles[0]._id,
+        services: [allServices[0]._id],
+        date: today, timeSlot: { start: '10:00', end: '10:45' },
+        totalDuration: 45, totalAmount: 500, status: 'pending', bookedVia: 'web',
+      },
+      {
+        customer: customer._id, staff: staffProfiles[0]._id,
+        services: [allServices[1]._id],
+        date: today, timeSlot: { start: '14:00', end: '15:00' },
+        totalDuration: 60, totalAmount: 1200, status: 'confirmed', bookedVia: 'web',
+      },
+      {
+        customer: customer._id, staff: staffProfiles[0]._id,
+        services: [allServices[0]._id, allServices[1]._id],
+        date: tomorrow, timeSlot: { start: '11:00', end: '12:45' },
+        totalDuration: 105, totalAmount: 1700, status: 'pending', bookedVia: 'web',
+      },
+      {
+        customer: customer._id, staff: staffProfiles[0]._id,
+        services: [allServices[6]._id],
+        date: dayAfter, timeSlot: { start: '09:00', end: '10:00' },
+        totalDuration: 60, totalAmount: 1200, status: 'pending', bookedVia: 'web',
+      },
+      // Appointments for Amit (staffProfiles[1])
+      {
+        customer: customer._id, staff: staffProfiles[1]._id,
+        services: [allServices[7]._id],
+        date: today, timeSlot: { start: '10:00', end: '11:00' },
+        totalDuration: 60, totalAmount: 1500, status: 'confirmed', bookedVia: 'web',
+      },
+      {
+        customer: customer._id, staff: staffProfiles[1]._id,
+        services: [allServices[8]._id],
+        date: tomorrow, timeSlot: { start: '15:00', end: '16:15' },
+        totalDuration: 75, totalAmount: 2000, status: 'pending', bookedVia: 'web',
+      },
+      // Appointments for Neha (staffProfiles[2])
+      {
+        customer: customer._id, staff: staffProfiles[2]._id,
+        services: [allServices[13]._id],
+        date: dayAfter, timeSlot: { start: '10:00', end: '12:00' },
+        totalDuration: 120, totalAmount: 8000, status: 'confirmed', bookedVia: 'web',
+      },
+      {
+        customer: customer._id, staff: staffProfiles[2]._id,
+        services: [allServices[10]._id, allServices[12]._id],
+        date: nextWeek, timeSlot: { start: '14:00', end: '15:15' },
+        totalDuration: 75, totalAmount: 1000, status: 'pending', bookedVia: 'web',
+      },
+      // Appointments for Vikram (staffProfiles[3])
+      {
+        customer: customer._id, staff: staffProfiles[3]._id,
+        services: [allServices[0]._id],
+        date: today, timeSlot: { start: '11:00', end: '11:45' },
+        totalDuration: 45, totalAmount: 500, status: 'in-progress', bookedVia: 'web',
+      },
+      {
+        customer: customer._id, staff: staffProfiles[3]._id,
+        services: [allServices[16]._id],
+        date: tomorrow, timeSlot: { start: '16:00', end: '17:00' },
+        totalDuration: 60, totalAmount: 1500, status: 'pending', bookedVia: 'web',
+      },
+    ]);
+
     console.log('\n✅ Database seeded successfully!');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log('📧 Admin: admin@salonflow.com / admin123');
