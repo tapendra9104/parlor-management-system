@@ -35,6 +35,8 @@ jobs:
           NODE_ENV: test
           JWT_SECRET: ci-test-jwt-secret-must-be-32-characters-long
           MONGODB_URI: mongodb://localhost:27017/salonflow_test
+               RAZORPAY_KEY_ID: dummy_key_id
+                              RAZORPAY_KEY_SECRET: dummy_secret
 
     services:
       mongodb:
