@@ -10,9 +10,60 @@
 
 **A production-ready, full-stack salon management platform with online booking, Razorpay payments, AI chatbot, real-time notifications, and a premium dark-themed UI.**
 
-[Live Demo](#) · [API Docs](#api-documentation) · [Screenshots](#screenshots) · [Getting Started](#getting-started)
+[Live Demo](#) · [API Docs](#-api-documentation) · [Screenshots](#-screenshots) · [Getting Started](#-getting-started)
 
 </div>
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+Premium landing page with full-width hero, salon imagery, and elegant typography.
+
+![Home Page](screenshots/home.png)
+
+---
+
+### 💈 Services Catalog
+Filterable service catalog with category pills, search, pricing, and booking CTAs.
+
+![Services](screenshots/services.png)
+
+---
+
+### 📅 Booking Wizard
+5-step multi-step booking flow: Select Services → Choose Stylist → Pick Date/Time → Review → Pay.
+
+![Booking](screenshots/booking.png)
+
+---
+
+### 👤 Customer Dashboard
+Customer view with upcoming appointments, booking history, and personalized recommendations.
+
+![Customer Dashboard](screenshots/customer-dashboard.png)
+
+---
+
+### 👩‍💼 Staff Dashboard
+Staff-specific view showing assigned appointments with Confirm/Start/No Show action buttons. Each staff member only sees their own bookings.
+
+![Staff Dashboard](screenshots/staff-dashboard.png)
+
+---
+
+### 📊 Admin Dashboard
+Admin analytics with revenue trends, booking stats, staff performance, and team management.
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+---
+
+### 📖 Swagger API Docs
+Interactive OpenAPI 3.0 documentation with all endpoints — accessible at `/api-docs`.
+
+![Swagger Docs](screenshots/swagger-docs.png)
 
 ---
 
@@ -34,8 +85,9 @@
 - 💰 **Payment History** — Complete transaction records with invoice auto-generation
 
 ### For Staff
-- 📋 **Staff Dashboard** — View assigned appointments, update status, track completions
-- ⏰ **Schedule Management** — Working hours, availability, and conflict detection
+- 📋 **Staff Dashboard** — View only your assigned appointments, update status, track completions
+- ⏰ **Appointment Actions** — Confirm, Start, Mark Complete, or No Show
+- 🔒 **Privacy** — Staff can only see and manage their own bookings
 
 ---
 
@@ -55,6 +107,7 @@
 | **Docs** | Swagger / OpenAPI 3.0 |
 | **CI/CD** | GitHub Actions |
 | **PWA** | Service Worker, Web App Manifest |
+| **i18n** | English + Hindi (extensible) |
 
 ---
 
@@ -73,24 +126,6 @@
 
 ---
 
-## 📸 Screenshots
-
-<details>
-<summary>Click to expand screenshots</summary>
-
-| Page | Description |
-|------|-------------|
-| **Home** | Premium hero section with salon imagery |
-| **Services** | Filterable service catalog with category pills |
-| **Booking** | 5-step wizard with conflict detection |
-| **Dashboard** | Customer stats, upcoming appointments, recommendations |
-| **Admin** | Revenue analytics, staff management, inventory |
-| **API Docs** | Swagger UI at `/api-docs` |
-
-</details>
-
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -100,8 +135,8 @@
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/salonflow.git
-cd salonflow
+git clone https://github.com/tapendra9104/parlor-management-system.git
+cd parlor-management-system
 ```
 
 ### 2. Setup Backend
@@ -119,7 +154,15 @@ npm install
 npm run dev             # Starts on http://localhost:5173
 ```
 
-### 4. Environment Variables
+### 4. Seed Demo Data (Optional)
+```bash
+cd server
+node seed.js
+```
+
+This creates demo accounts and sample appointments for all staff members.
+
+### 5. Environment Variables
 
 ```env
 # Required
@@ -140,6 +183,17 @@ EMAIL_PASS=your-app-password
 
 ---
 
+## 🧰 Demo Accounts
+
+| Role | Email | Password |
+|------|-------|----------|
+| 👑 Admin | admin@salonflow.com | admin123 |
+| 💇 Staff (Riya) | riya@salonflow.com | staff123 |
+| 💇 Staff (Amit) | amit@salonflow.com | staff123 |
+| 👤 Customer | customer@salonflow.com | customer123 |
+
+---
+
 ## 📖 API Documentation
 
 Interactive API docs available at **`/api-docs`** (Swagger UI) when the server is running.
@@ -153,10 +207,11 @@ Interactive API docs available at **`/api-docs`** (Swagger UI) when the server i
 | `GET` | `/api/services` | List services (paginated) | Public |
 | `POST` | `/api/appointments` | Create booking | Customer |
 | `GET` | `/api/appointments/slots` | Check availability | Public |
+| `PUT` | `/api/appointments/:id/status` | Confirm/reject appointment | Staff/Admin |
 | `POST` | `/api/payments/create-order` | Create Razorpay order | Customer |
 | `POST` | `/api/payments/verify` | Verify payment signature | Customer |
 | `POST` | `/api/webhooks/razorpay` | Razorpay webhook | Webhook |
-| `GET` | `/api/analytics/overview` | Dashboard analytics | Admin |
+| `GET` | `/api/analytics/dashboard` | Dashboard analytics | Admin |
 
 ---
 
@@ -203,16 +258,17 @@ salonflow/
 │
 ├── server/                    # Express Backend
 │   ├── config/                # DB, env, logger, swagger, secrets
-│   ├── controllers/           # Route handlers
+│   ├── controllers/           # Route handlers (11 controllers)
 │   ├── jobs/                  # Email queue (Agenda)
 │   ├── middleware/            # Auth, validation, upload, pagination
 │   ├── models/                # Mongoose schemas (9 models)
 │   ├── routes/                # API routes with Swagger docs
 │   ├── scripts/               # Backup automation
 │   ├── services/              # Email, AI services
-│   ├── tests/                 # Jest test suites
+│   ├── tests/                 # Jest test suites (30+ tests)
 │   └── server.js              # Entry point
 │
+├── screenshots/               # App screenshots for README
 ├── .github/workflows/         # CI/CD pipeline
 ├── BACKUP_STRATEGY.md         # Disaster recovery guide
 └── README.md
