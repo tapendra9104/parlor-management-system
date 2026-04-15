@@ -5,7 +5,9 @@
  * Centralized HTTP client for all API calls.
  */
 
-const API_BASE = '/api';
+const API_BASE = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : '/api';
 
 class ApiService {
   constructor() {
