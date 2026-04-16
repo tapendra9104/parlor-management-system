@@ -14,6 +14,12 @@ jobs:
       matrix:
         node-version: [18.x, 20.x]
 
+    services:
+      mongodb:
+        image: mongo:7
+        ports:
+          - 27017:27017
+
     steps:
       - uses: actions/checkout@v4
 
@@ -36,13 +42,7 @@ jobs:
           JWT_SECRET: ci-test-jwt-secret-must-be-32-characters-long
           MONGODB_URI: mongodb://localhost:27017/salonflow_test
           RAZORPAY_KEY_ID: dummy_key_id
-                    RAZORPAY_KEY_SECRET: dummy_secret
-
-    services:
-      mongodb:
-        image: mongo:7
-        ports:
-          - 27017:27017
+          RAZORPAY_KEY_SECRET: dummy_secret
 
   build:
     name: Build
@@ -67,7 +67,8 @@ jobs:
         working-directory: ./client
         run: npm run build
         env:
-          VITE_DEMO_MODE: 'false'
+          VITE_API_URL: https://salonflow-api.onrender.com
+          VITE_DEMO_MODE: 'true'
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -91,10 +92,11 @@ jobs:
           name: client-build
           path: client/dist/
 
-      # Add your deployment steps here based on your hosting provider
-      # Examples:
-      # - Render: Auto-deploys from GitHub
-      # - Railway: railway up
-      # - Vercel: vercel --prod
       - name: Deploy notification
-        run: echo "✅ Ready to deploy to production"
+        run: |
+          echo "✅ SalonFlow CI/CD Pipeline completed successfully"
+          echo "📦 Build artifacts ready for deployment"
+          echo ""
+          echo "🌐 Frontend: https://parlor-management-system.vercel.app"
+          echo "🔧 Backend:  https://salonflow-api.onrender.com"
+          echo "📖 API Docs: https://salonflow-api.onrender.com/api-docs"

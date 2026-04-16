@@ -10,7 +10,7 @@
 
 **A production-ready, full-stack salon management platform with online booking, Razorpay payments, AI chatbot, real-time notifications, and a premium dark-themed UI.**
 
-[Live Demo](https://parlor-management-system.vercel.app) · [API Docs](#i-docuhttps://salonflow-api.onrender.com/api-docs) · [Screenshots](#-screenshots) · [Getting Started](#-getting-started)
+[Live Demo](https://parlor-management-system.vercel.app) · [API Docs](https://salonflow-api.onrender.com/api-docs) · [Screenshots](#-screenshots) · [Getting Started](#-getting-started)
 
 </div>
 
