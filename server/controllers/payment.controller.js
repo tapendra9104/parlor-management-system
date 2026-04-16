@@ -44,7 +44,7 @@ const getRazorpayKey = async (req, res) => {
  */
 const createOrder = async (req, res, next) => {
   if (!razorpay) {
-    return res.status(503).json({ success: false, message: 'Payment service is not configured.' });
+    return res.status(503).json({ success: false, message: 'Payment gateway credentials are not configured. Please contact support.' });
   }
   try {
     const { appointmentId } = req.body;
