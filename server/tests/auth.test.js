@@ -30,9 +30,9 @@ describe('Auth API', () => {
 
       expect(res.status).toBe(201);
       expect(res.body.success).toBe(true);
-      expect(res.body.token).toBeDefined();
-      expect(res.body.user.name).toBe('New User');
-      expect(res.body.user.role).toBe('customer');
+      expect(res.body.data.token).toBeDefined();
+      expect(res.body.data.user.name).toBe('New User');
+      expect(res.body.data.user.role).toBe('customer');
     });
 
     it('should reject duplicate email', async () => {
@@ -88,7 +88,7 @@ describe('Auth API', () => {
 
       expect(res.status).toBe(200);
       expect(res.body.success).toBe(true);
-      expect(res.body.token).toBeDefined();
+      expect(res.body.data.token).toBeDefined();
     });
 
     it('should reject wrong password', async () => {
@@ -131,7 +131,7 @@ describe('Auth API', () => {
 
       expect(res.status).toBe(200);
       expect(res.body.success).toBe(true);
-      expect(res.body.user.email).toBe('me@salonflow.com');
+      expect(res.body.data.user.email).toBe('me@salonflow.com');
     });
 
     it('should reject request without token', async () => {
