@@ -312,6 +312,7 @@
   justify-content: space-between;
   gap: var(--space-md);
   z-index: 10;
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 
