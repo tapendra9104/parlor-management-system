@@ -325,7 +325,7 @@ input, select, textarea {
 .btn::after {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
   opacity: 0;
   transition: opacity var(--transition-fast);
@@ -816,7 +816,7 @@ input, select, textarea {
 /* ─── Modal ───────────────────────────────────── */
 .modal-overlay {
   position: fixed;
-  inset: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -983,7 +983,7 @@ input, select, textarea {
 .toggle-slider {
   position: absolute;
   cursor: pointer;
-  inset: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   background: var(--bg-tertiary);
   border-radius: var(--radius-full);
   transition: all var(--transition-normal);

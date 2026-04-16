@@ -17,6 +17,8 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     minify: 'esbuild',
+    // Safari 14+ / iOS 14+ / Chrome 87+ / Firefox 78+ / Edge 88+
+    target: ['es2020', 'safari14', 'chrome87', 'firefox78', 'edge88'],
     rollupOptions: {
       output: {
         manualChunks: {

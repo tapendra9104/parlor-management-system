@@ -5,7 +5,7 @@
  * Cache-first for static assets, network-first for API calls.
  */
 
-const CACHE_NAME = 'salonflow-v1';
+const CACHE_NAME = 'salonflow-v2';
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',
