@@ -144,6 +144,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 body {
@@ -412,6 +413,10 @@ input, select, textarea {
   height: 40px;
   padding: 0;
   border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .btn:disabled {
@@ -1387,11 +1392,15 @@ input, select, textarea {
     --font-2xl: 1.25rem;
   }
   .container {
-    padding: 0 var(--space-sm);
+    padding: 0 var(--space-md);
   }
   .grid-4 { grid-template-columns: 1fr; }
   .section {
     padding: var(--space-xl) 0;
+  }
+  .stat-card {
+    padding: var(--space-md);
+    gap: var(--space-md);
   }
   .stat-card {
     padding: var(--space-md);

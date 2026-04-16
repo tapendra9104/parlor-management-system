@@ -17,6 +17,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const dropdownRef = useRef(null);
 
   // Detect scroll for navbar background
@@ -26,6 +27,15 @@ const Navbar = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Detect mobile viewport
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Close dropdown on outside click
@@ -159,6 +169,14 @@ const Navbar = () => {
               My Bookings
             </Link>
           )}
+
+          {/* Mobile-only auth buttons (shown inside hamburger menu) */}
+          {!user && (
+            <div className="mobile-auth-buttons">
+              <Link to="/login" className="btn btn-outline btn-mobile-auth" onClick={() => setMobileOpen(false)}>Log In</Link>
+              <Link to="/register" className="btn btn-primary btn-mobile-auth" onClick={() => setMobileOpen(false)}>Sign Up</Link>
+            </div>
+          )}
         </div>
 
         {/* Right Side */}
@@ -221,10 +239,13 @@ const Navbar = () => {
               </div>
             </>
           ) : (
-            <div className="auth-buttons">
-              <Link to="/login" className="btn btn-ghost btn-sm" id="login-btn">Log In</Link>
-              <Link to="/register" className="btn btn-primary btn-sm nav-signup-btn" id="register-btn">Sign Up</Link>
-            </div>
+            /* Only show auth buttons in navbar on desktop */
+            !isMobile && (
+              <div className="auth-buttons">
+                <Link to="/login" className="btn btn-ghost btn-sm" id="login-btn">Log In</Link>
+                <Link to="/register" className="btn btn-primary btn-sm nav-signup-btn" id="register-btn">Sign Up</Link>
+              </div>
+            )
           )}
 
           {/* Mobile Toggle */}

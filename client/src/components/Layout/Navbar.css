@@ -346,11 +346,22 @@
   color: white;
 }
 
+/* ─── Mobile Auth Buttons (inside hamburger menu) ── */
+.mobile-auth-buttons {
+  display: none;
+}
+
 /* ─── Responsive ──────────────────────────────── */
 @media (max-width: 768px) {
   .mobile-toggle {
     display: flex;
   }
+
+  /* Hide desktop auth buttons on mobile */
+  .auth-buttons {
+    display: none !important;
+  }
+
   .navbar-links {
     position: fixed;
     top: var(--navbar-height);
@@ -371,31 +382,55 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
+
   .navbar-links.open {
     transform: translateY(0);
     opacity: 1;
     pointer-events: all;
   }
+
   .nav-link {
     width: 100%;
     padding: 14px 18px;
     font-size: var(--font-md);
     border-radius: var(--radius-md);
   }
-  .auth-buttons {
+
+  /* Show mobile auth buttons inside the hamburger menu */
+  .mobile-auth-buttons {
+    display: flex;
+    flex-direction: column;
     gap: var(--space-sm);
     width: 100%;
-    flex-direction: column;
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border);
   }
-  .auth-buttons .btn {
+
+  .btn-mobile-auth {
     width: 100%;
     justify-content: center;
+    padding: 14px 24px !important;
+    font-size: var(--font-md) !important;
+    border-radius: var(--radius-md) !important;
   }
+
   .user-name {
     display: none;
   }
+
   .dropdown-arrow {
     display: none;
+  }
+
+  .navbar-actions {
+    gap: var(--space-xs);
+  }
+
+  /* Ensure dropdown menu is properly positioned on mobile */
+  .dropdown-menu {
+    right: -8px;
+    min-width: 220px;
   }
 }
 
@@ -403,20 +438,61 @@
   .navbar {
     height: 60px;
   }
+
   .logo-text {
     font-size: var(--font-lg);
   }
+
   .logo-mark {
     width: 32px;
     height: 32px;
   }
+
   .notification-btn {
     width: 36px;
     height: 36px;
   }
+
   .mobile-toggle {
     width: 36px;
     height: 36px;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navbar-actions {
+    gap: 2px;
+  }
+
+  .navbar-links {
+    padding: var(--space-md);
+  }
+
+  .nav-link {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar {
+    height: 56px;
+  }
+
+  .logo-text {
+    font-size: var(--font-md);
+  }
+
+  .logo-mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .logo-mark svg {
+    width: 14px;
+    height: 14px;
   }
 }
 

@@ -150,4 +150,30 @@
   .services-grid-page {
     grid-template-columns: 1fr !important;
   }
+
+  .services-page {
+    padding-bottom: calc(var(--space-4xl) + 80px);
+  }
+}
+
+@media (max-width: 480px) {
+  .services-page {
+    padding-top: calc(var(--navbar-height) + var(--space-lg));
+  }
+
+  .service-card-content {
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+  }
+
+  .service-card-name {
+    font-size: var(--font-lg);
+  }
+
+  .service-card-meta {
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .service-card-image {
+    height: 170px;
+  }
 }
